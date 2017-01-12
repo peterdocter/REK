@@ -1,0 +1,23 @@
+================bootimg.zip================
+bootimg --unpack-bootimg
+bootimg --repack-bootimg
+--Change parameter
+
+================fastboot================
+adb reboot bootloader
+fastboot flash boot boot-new.img
+fastboot reboot
+
+# adb reboot bootloader
+# fastboot flash boot boot-new.img
+target reported max download size of 536870912 bytes
+sending 'boot' (6806 KB)...
+OKAY [  0.216s]
+writing 'boot'...
+OKAY [  0.365s]
+finished. total time: 0.581s
+# fastboot reboot
+rebooting...
+
+finished. total time: 0.054s
+

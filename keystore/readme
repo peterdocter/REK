@@ -1,0 +1,83 @@
+========================================
+jarsigner -verbose -keystore [your_keystore_path] -signedjar [signed_apk_name] [unsigned_apk_name] [your_keystore_alias]
+========================================
+# jarsigner -digestalg SHA1 -sigalg MD5withRSA -verbose -keystore test.keystore -signedjar signed.apk test.apk 'test'
+Enter Passphrase for keystore:
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/TEST.SF
+   adding: META-INF/TEST.RSA
+  signing: AndroidManifest.xml
+  signing: classes.dex
+  signing: ......
+
+========================================
+keytool -genkey -keystore test.keystore  -alias test -keyalg RSA -validity 10000
+========================================
+
+# keytool -genkey -keystore test.keystore  -alias test -keyalg RSA -validity 10000
+Enter keystore password:  123456
+Re-enter new password: 123456
+What is your first and last name?
+  [Unknown]:  test
+What is the name of your organizational unit?
+  [Unknown]:  
+What is the name of your organization?
+  [Unknown]:  
+What is the name of your City or Locality?
+  [Unknown]:  
+What is the name of your State or Province?
+  [Unknown]:  
+What is the two-letter country code for this unit?
+  [Unknown]:  
+Is CN=test, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct?
+  [no]:  y
+
+Enter key password for <test>
+	(RETURN if same as keystore password): 
+
+
+========================================
+keytool -list -v -keystore test.keystore
+========================================
+
+# keytool -list -v -keystore test.keystore
+Enter keystore password:  
+
+Keystore type: JKS
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: test
+Creation date: Dec 19, 2016
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=test, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+Issuer: CN=test, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
+Serial number: 57afe926
+Valid from: Mon Dec 19 17:19:58 CST 2016 until: Fri May 06 17:19:58 CST 2044
+Certificate fingerprints:
+	 MD5:  BB:EF:64:39:04:04:8E:0F:A3:0C:C9:34:53:BB:D4:B3
+	 SHA1: 70:DC:73:74:08:F3:6E:D7:8E:32:64:12:85:9A:A5:B3:C0:04:39:FA
+	 SHA256: 64:22:5B:C2:A8:13:2E:F6:27:8D:55:19:2B:D5:5B:CE:FD:19:95:66:A6:1C:BA:31:55:33:17:09:E1:2E:F7:5D
+	 Signature algorithm name: SHA256withRSA
+	 Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: D0 A7 9F 22 C4 D5 B7 15   1B 4B A4 BC 13 96 85 9B  ...".....K......
+0010: BF C3 26 76                                        ..&v
+]
+]
+
+
+
+*******************************************
+*******************************************
+
+
+
